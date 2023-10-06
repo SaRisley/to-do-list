@@ -25,8 +25,8 @@ function App() {
   return (
     <div className="App">
       <h1>To-do List</h1>
-      <NewToDo toDoList={toDoList} setToDoList={setToDoList}/>
       <Toolbar toDoList={toDoList} filtered={filtered} setFiltered={setFiltered}/>
+      <NewToDo toDoList={toDoList} setToDoList={setToDoList}/>
       <ListOfToDos toDoList={toDoList} setToDoList={setToDoList} filtered={filtered}/>
     </div>
   );

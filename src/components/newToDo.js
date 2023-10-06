@@ -2,6 +2,7 @@ import { useState } from "react"
 
 const NewToDo = (props) => {
     let [numOfTasks, setNumOfTasks] = useState(0)
+    const [inputValue, setInputValue] = useState('');
 
     const addToDo = (e) => {
         const toDo = e.target.todo.value
@@ -14,8 +15,8 @@ const NewToDo = (props) => {
             task: toDo,
             complete: false,
             }
-        ]);;
-    console.log(props.toDoList)
+        ]);
+        setInputValue('')
     }
 
     return (
@@ -26,7 +27,9 @@ const NewToDo = (props) => {
                 class="todoinput"
                 type="text"
                 name="todo"
+                value={inputValue}
                 placeholder="What do you need to-do?"
+                onChange={(e) => setInputValue(e.target.value)}
                 />
                 <button type="submit">Add</button>
             </form>
