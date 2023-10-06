@@ -5,13 +5,10 @@ const Toolbar = (props) => {
     }
 
     return (
-        <div>
-            <p>Pending Tasks: {(props.toDoList.filter(toDo => toDo.complete === false)).length}</p>
-            <input 
-            type="checkbox" 
-            onChange={toggleCheckBox} /> 
-        <label>Show pending</label>
-        </div>
+        <ul class="toolbar">
+            <li class="outstanding"><input class="checkbox" type="checkbox" onChange={toggleCheckBox}/>Show outstanding</li>
+            <li class="pending">Pending Tasks: {(props.toDoList.filter(toDo => toDo.complete === false)).length}</li>
+        </ul>
     )
 }
 

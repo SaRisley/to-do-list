@@ -16,14 +16,14 @@ body {
   color: white;
 }
 
-input{
+.todoinput{
   background-color: #4cc3ea;
   border-radius: 8px;
   border-style: solid;
   border-color: #FFFFFF;
   color: #FFFFFF;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   height: 20px;
   width: 200px;
@@ -42,7 +42,7 @@ button{
   border-color: #FFFFFF;
   color: #FFFFFF;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   height: auto;
   padding: 10px 16px;
@@ -57,4 +57,44 @@ button:focus {
 
 .completed {
   text-decoration: line-through;
+}
+
+.toolbar {
+	height: auto;
+  width: 40%;
+	border-radius: 25px; 
+  align-self: center;
+	border-width: 3px;
+	border-color: #ffffff;
+	border-style: solid;
+  font-size: 20px;
+}
+
+.toolbar li{
+	position: relative;
+	display: inline-block;
+	padding-right: 30px;
+	color: rgb(255, 255, 255);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.toolbar .checkbox {
+	display: block;
+	float: left;
+}
+
+.toolbar .outstanding {
+	display: block;
+	float: left;
+}
+
+.toolbar .pending {
+	display: block;
+	float: right;
+}
+
+input[type="checkbox"]{
+	accent-color: #4cc3ea;
+	cursor: pointer;
+  height: 20px;
 }
