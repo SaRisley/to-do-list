@@ -26,11 +26,11 @@ const ListOfToDos = (props) => {
         return(
         <div>
             {filteredList.map((toDo, index) => (
-                <div key={index}>
-                    <label className={ toDo.complete ? 'completed' : '' }>{toDo.task}</label>
-                    <button value={toDo.id} onClick={markCompleteToDo}>Complete</button>    
-                    <button value={toDo.id} onClick={deleteTodoItem}>Delete</button>
-                </div>
+                <div class="todo-item" key={index}>
+                        <label className={ toDo.complete ? 'completed' : '' }>{toDo.task}</label>
+                        <button className={ toDo.complete ? 'active-complete-btn' : 'complete-btn' } value={toDo.id} onClick={markCompleteToDo}>✔️</button>    
+                        <button class="delete-btn" value={toDo.id} onClick={deleteTodoItem}>❌</button>
+                    </div>
         ))}
         </div>
         )
@@ -38,10 +38,10 @@ const ListOfToDos = (props) => {
         return(
             <div>
                 {props.toDoList.map((toDo, index) => (
-                    <div key={index}>
+                    <div class="todo-item" key={index}>
                         <label className={ toDo.complete ? 'completed' : '' }>{toDo.task}</label>
-                        <button value={toDo.id} onClick={markCompleteToDo}>Complete</button>    
-                        <button value={toDo.id} onClick={deleteTodoItem}>Delete</button>
+                        <button className={ toDo.complete ? 'active-complete-btn' : 'complete-btn' } value={toDo.id} onClick={markCompleteToDo}>✔️</button>    
+                        <button class="delete-btn" value={toDo.id} onClick={deleteTodoItem}>❌</button>
                     </div>
             ))}
             </div>
