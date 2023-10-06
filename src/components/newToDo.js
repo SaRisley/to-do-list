@@ -1,17 +1,21 @@
+import { useState } from "react"
+
 const NewToDo = (props) => {
-    let numOfTasks = props.toDoList.length
+    let [numOfTasks, setNumOfTasks] = useState(0)
 
     const addToDo = (e) => {
         const toDo = e.target.todo.value
         e.preventDefault();
+        setNumOfTasks(numOfTasks+1)
         props.setToDoList([
             ...props.toDoList,
             {
-            id: numOfTasks++,
+            id: numOfTasks,
             task: toDo,
             complete: false,
             }
         ]);;
+    console.log(props.toDoList)
     }
 
     return (
