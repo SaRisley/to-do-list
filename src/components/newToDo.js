@@ -23,6 +23,7 @@ const NewToDo = (props) => {
             <form
             onSubmit={addToDo}>
                 <input 
+                class="todoinput"
                 type="text"
                 name="todo"
                 placeholder="What do you need to-do?"

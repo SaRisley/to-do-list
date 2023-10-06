@@ -47,20 +47,6 @@ const ListOfToDos = (props) => {
             </div>
         )
     }
-
-
-    // return(
-    //     <div>
-    //         {props.toDoList.map((toDo, index) => (
-    //             <div key={index}>
-    //                 <label className={ toDo.complete ? 'completed' : '' }>{toDo.task}</label>
-    //                 <button value={toDo.id} onClick={markCompleteToDo}>Complete</button>    
-    //                 <button value={toDo.id} onClick={deleteTodoItem}>Delete</button>
-    //             </div>
-    //     ))}
-    //     </div>
-    // )
-
 };
 
 export default ListOfToDos;
