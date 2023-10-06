@@ -1,43 +1,66 @@
 const ListOfToDos = (props) => {
 
     const markCompleteToDo = (e) => {
-        console.log(e.target.value)
         const updatedTasks = props.toDoList.map((toDo) => {
-            // if this task has the same ID as the edited task
-            if (e.target.value === toDo.task) {
-              // use object spread to make a new object
-              // whose `completed` prop has been inverted
-                console.log("1")
+            if (e.target.value === toDo.id.toString()) {
                 return { ...toDo, complete: !toDo.complete };
             }
-            console.log("2")
+            console.log(`todo id:${toDo.id}, etargetvalue:${e.target.value} marked as ${toDo.complete}`)
             return toDo;
             });
-            console.log(updatedTasks)
             props.setToDoList(updatedTasks);
     }
     
-    const deleteTodoItem = (index) => {
-        const newTodoItems = [...props.toDoList]
-        newTodoItems.splice(index, 1)
-        props.setToDoList(newTodoItems)
-        }
+    const deleteTodoItem = (e) => {
+        let filtered_arr = props.toDoList.filter(x => x.id.toString() !== e.target.value)
+        console.log(filtered_arr)
+        console.log(e.target.value)
+        props.setToDoList(filtered_arr)
+        
+    }
+    
 
-    return(
+    const filteredList = props.toDoList.filter(toDo => toDo.complete === false);
+
+    if (props.filtered) {
+        return(
         <div>
-            {props.toDoList.map((toDo, index) => (
+            {filteredList.map((toDo, index) => (
                 <div key={index}>
-                    <label>{toDo.task}</label>
-                    <input
-                        value={toDo.task}
-                        type="checkbox"
-                        defaultChecked={toDo.completed}
-                        onChange={markCompleteToDo}/>
-                    <button onClick={deleteTodoItem}>Delete</button>
+                    <label className={ toDo.complete ? 'completed' : '' }>{toDo.task}</label>
+                    <button value={toDo.id} onClick={markCompleteToDo}>Complete</button>    
+                    <button value={toDo.id} onClick={deleteTodoItem}>Delete</button>
                 </div>
         ))}
         </div>
-    )
+        )
+    } else {
+        return(
+            <div>
+                {props.toDoList.map((toDo, index) => (
+                    <div key={index}>
+                        <label className={ toDo.complete ? 'completed' : '' }>{toDo.task}</label>
+                        <button value={toDo.id} onClick={markCompleteToDo}>Complete</button>    
+                        <button value={toDo.id} onClick={deleteTodoItem}>Delete</button>
+                    </div>
+            ))}
+            </div>
+        )
+    }
+
+
+    // return(
+    //     <div>
+    //         {props.toDoList.map((toDo, index) => (
+    //             <div key={index}>
+    //                 <label className={ toDo.complete ? 'completed' : '' }>{toDo.task}</label>
+    //                 <button value={toDo.id} onClick={markCompleteToDo}>Complete</button>    
+    //                 <button value={toDo.id} onClick={deleteTodoItem}>Delete</button>
+    //             </div>
+    //     ))}
+    //     </div>
+    // )
+
 };
 
 export default ListOfToDos;

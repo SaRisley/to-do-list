@@ -9,7 +9,7 @@ function App() {
   function useStickyState(defaultValue, key) {
     const [value, setValue] = useState(() => {
       const stickyValue = window.localStorage.getItem(key);
-      return stickyValue !== null
+      return stickyValue !== null && key !== null
         ? JSON.parse(stickyValue)
         : defaultValue;
     });
@@ -20,13 +20,14 @@ function App() {
   }
 
   const [toDoList, setToDoList] = useStickyState([])
+  const [filtered, setFiltered] = useState(false)
 
   return (
     <div className="App">
       <h1>To-do List</h1>
       <NewToDo toDoList={toDoList} setToDoList={setToDoList}/>
-      <Toolbar toDoList={toDoList}/>
-      <ListOfToDos toDoList={toDoList} setToDoList={setToDoList}/>
+      <Toolbar toDoList={toDoList} filtered={filtered} setFiltered={setFiltered}/>
+      <ListOfToDos toDoList={toDoList} setToDoList={setToDoList} filtered={filtered}/>
     </div>
   );
 }
